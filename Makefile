@@ -32,4 +32,12 @@ install: set-eu4-bundleidentifier build
 	@cp -r build/Release/mouselock.app ~/Applications
 	@echo "Mouselock is installed into ~/Applications. Change this in Makefile if you wanted to install somewhere else"
 
-.PHONY: release install dmg build clean-build set-version set-eu4-bundleidentifier
+git:
+	$(eval VERSION=$(shell git describe --tags --abbrev=0 | awk -F. '{OFS="."; $$NF+=1; print $0}'))
+	git add .
+	git commit -m "Bump version to ${VERSION}"
+	git push origin main
+	git tag -a $(VERSION) -m "new release"
+	git push origin $(VERSION)
+
+.PHONY: release install dmg build clean-build set-version set-eu4-bundleidentifier git
