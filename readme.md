@@ -12,6 +12,16 @@
   <img src="screenshot.png"/>
 </p>
 
+## TL;DR
+
+```sh
+git clone https://github.com/Mayurifag/mouselock.git && cd mouselock
+make install
+```
+
+This will set your eu4 bundle identifier; build project and install into
+~/Applications. You'll need all the XCode stuff for that.
+
 ## Why?
 
 In LoL, EU4 (and potentially other games), the cursor is not locked properly in borderless mode. This app and some tricky scripts are trying to fix that.
